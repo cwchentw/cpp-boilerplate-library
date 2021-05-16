@@ -1,10 +1,10 @@
-# C Boilerplate for Library
+# C++ Boilerplate for Library
 
-A C boilerplate project to build a C based library.
+A C++ boilerplate project to build a C++ based library.
 
 ## System Requirements
 
-* C compiler (Clang or GCC)
+* C++ compiler (Clang or GCC)
 * GNU Make (for compilation only)
 
 ## Usage
@@ -12,7 +12,7 @@ A C boilerplate project to build a C based library.
 Clone the project:
 
 ```
-$ git clone https://github.com/cwchentw/c-boilerplate-library.git mylib
+$ git clone https://github.com/cwchentw/cpp-boilerplate-library.git mylib
 ```
 
 Move your working directory to the root of *mylib*:
@@ -21,7 +21,7 @@ Move your working directory to the root of *mylib*:
 $ cd mylib
 ```
 
-Modify the header and the source as needed. You may add and remove C source files (*.c*) as well.
+Modify the header and the source as needed. You may add and remove C source files (*.c*) and C++ source files (*.cc*, *.cpp* or *.cxx*) as well.
 
 Compile the project to a dynamic library:
 
@@ -53,8 +53,11 @@ Here are the parameters in *Makefile*:
 
 * **LIBRARY**: the name of the compiled library, including *lib* the prefix
 * **C_STD**: the C standard as a GCC C dialect
+* **CXX_STD**: the C++ standard as a GCC C++ dialect
 
 ## Note
+
+You may mix C and C++ in the same project as well.
 
 The project assumes a Unix console environment. Windows users can install [MSYS2](https://www.msys2.org/) to obtain a decent Unix environment.
 
