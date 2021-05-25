@@ -69,32 +69,48 @@ else
 endif
 
 %.o:%.c
+ifeq (,$(MAKECMDGOALS))
+	$(CC) -fPIC -std=$(C_STD) -c $< -o $@ $(CFLAGS) -I include
+else
 ifeq (dynamic,$(MAKECMDGOALS))
 	$(CC) -fPIC -std=$(C_STD) -c $< -o $@ $(CFLAGS) -I include
 else
 	$(CC) -std=$(C_STD) -c $< -o $@ $(CFLAGS) -I include
-endif
+endif  # make dynamic
+endif  # make
 
 %.o:%.cc
+ifeq (,$(MAKECMDGOALS))
+	$(CXX) -fPIC -std=$(CXX_STD) -c $< -o $@ $(CXXFLAGS) -I include
+else
 ifeq (dynamic,$(MAKECMDGOALS))
 	$(CXX) -fPIC -std=$(CXX_STD) -c $< -o $@ $(CXXFLAGS) -I include
 else
 	$(CXX) -std=$(CXX_STD) -c $< -o $@ $(CXXFLAGS) -I include
-endif
+endif  # make dynamic
+endif  # make
 
 %.o:%.cpp
+ifeq (,$(MAKECMDGOALS))
+	$(CXX) -fPIC -std=$(CXX_STD) -c $< -o $@ $(CXXFLAGS) -I include
+else
 ifeq (dynamic,$(MAKECMDGOALS))
 	$(CXX) -fPIC -std=$(CXX_STD) -c $< -o $@ $(CXXFLAGS) -I include
 else
 	$(CXX) -std=$(CXX_STD) -c $< -o $@ $(CXXFLAGS) -I include
-endif
+endif  # make dynamic
+endif  # make
 
 %.o:%.cxx
+ifeq (,$(MAKECMDGOALS))
+	$(CXX) -fPIC -std=$(CXX_STD) -c $< -o $@ $(CXXFLAGS) -I include
+else
 ifeq (dynamic,$(MAKECMDGOALS))
 	$(CXX) -fPIC -std=$(CXX_STD) -c $< -o $@ $(CXXFLAGS) -I include
 else
 	$(CXX) -std=$(CXX_STD) -c $< -o $@ $(CXXFLAGS) -I include
-endif
+endif  # make dynamic
+endif  # make
 
 clean:
 	$(RM) dist/$(DYNAMIC_LIB) dist/$(STATIC_LIB) $(OBJS)
